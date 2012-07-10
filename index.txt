@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+<title>Ejemplo de página centrada vertical y horizontalmente</title> 
+ 
+ 
+<style type="text/css"> 
+html {
+	margin:					0;
+	padding:				0;
+}
+body {
+	margin:					0;
+	padding:				0;
+	font:					12px/15px verdana, arial, sans-serif;
+	color:					#000;
+	background:				#fff;
+}
+#divCentrado {
+	position:				absolute;
+	padding:				3px;
+	width:					600px;
+	height:					300px;
+ 
+	font:					10px/12px verdana, arial, sans-serif;
+	color:					#666;
+	background:				#DDE2E4;
+	visibility:				hidden;
+}
+</style> 
+ 
+<script type="text/javascript"> 
+ 
+positionIt = function() {
+	if( document.getElementById ) {
+		// Get a reference to divCentrado and measure its width and height.
+		var div = document.getElementById( "divCentrado" );
+		var divWidth = div.offsetWidth ? div.offsetWidth : div.style.width ? parseInt( div.style.width ) : 0;
+		var divHeight = div.offsetHeight ? div.offsetHeight :  div.style.height ? parseInt( div.style.height ) : 0;
+		
+		// Calculating setX and setX so the div will be centered in the viewport.
+		var setX = ( getViewportWidth() - divWidth ) / 2;
+		var setY = ( getViewportHeight() - divHeight ) / 2;
+		
+		// If setX or setY have become smaller than 0, make them 0.
+		if( setX < 0 ) setX = 0;
+		if( setY < 0 ) setY = 0;
+		
+		// Position the div in the center of the page and make it visible.
+		div.style.left = setX + "px";
+		div.style.top = setY + "px";
+		div.style.visibility = "visible";
+	}
+};
+ 
+getViewportWidth = function() {
+	var width = 0;
+	if( document.documentElement && document.documentElement.clientWidth ) {
+		width = document.documentElement.clientWidth;
+	}
+	else if( document.body && document.body.clientWidth ) {
+		width = document.body.clientWidth;
+	}
+	else if( window.innerWidth ) {
+		width = window.innerWidth - 18;
+	}
+	return width;
+};
+ 
+getViewportHeight = function() {
+	var height = 0;
+	if( document.documentElement && document.documentElement.clientHeight ) {
+		height = document.documentElement.clientHeight;
+	}
+	else if( document.body && document.body.clientHeight ) {
+		height = document.body.clientHeight;
+	}
+	else if( window.innerHeight ) {
+		height = window.innerHeight - 18;
+	}
+	return height;
+};
+ 
+window.onload = positionIt;
+window.onresize = positionIt;
+</script></head> 
+ 
+<body> 
+ 
+<div style="left: 399px; top: 295.5px; visibility: visible;" id="divCentrado">
+<center><h1>XXV Subida Pedestre Desfiladero de la Hermida</h1></center>
+<center><h2>Domingo 25 de Septiembre 9:30</h2></center>
+<br><br>
+<center>
+<br>
+<h2>
+El proceso de incripción: del 15 de Agosto al Viernes 16 de septiembre
+</h2>
+<br>
+<h3>
+En pocos días subiremos la información referente a la nueva edición que este año será su 25º: Reglamento, Premios, Ediciones anteriores, ...
+</h3>
+<br /><br />
+<h1>¡¡ Página en mantenimiento !!</h1>
+
+
+</center>
+
+
+</div> 
+ 
+</body></html>
